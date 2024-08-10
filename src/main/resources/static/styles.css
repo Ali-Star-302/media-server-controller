@@ -1,0 +1,41 @@
+h1 {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+.container {
+  height: 400px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.serverBtn {
+   background-color: gray;
+   height:200px;
+   width:200px;
+   padding: 10px 20px;
+   font-size: 25px;
+   cursor: pointer;
+   text-align: center;
+}
+
+.serverBtn:hover {
+   background-color: darkGray;
+}
