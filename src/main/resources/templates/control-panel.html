@@ -9,8 +9,10 @@
     <h1>Control Panel</h1>
     <div class="container">
         <div class="center">
-            <form th:action="@{/control-panel}" method = "post">
-                <button type = "submit" class="serverBtn" >Media server toggle</button>
+            <p th:if="${awake}">Media server is on</p>
+            <p th:if="${!awake}">Media server is off</p>
+            <form th:if="${!awake}" th:action="@{/control-panel}" method = "post">
+                <button type = "submit" class="serverBtn" >Wake media server</button>
             </form>
         </div>
     </div>
