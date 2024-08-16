@@ -7,19 +7,38 @@
 </head>
 <body>
     <h1>Control Panel</h1>
-    <div class="container">
-        <div class="center">
-            <p th:if="${awake}">Media server is on</p>
-            <p th:if="${!awake}">Media server is off</p>
-            <form th:if="${!awake}" th:action="@{/control-panel}" method = "post">
-                <button type = "submit" class="serverBtn" >Wake media server</button>
-            </form>
-        </div>
+    <div class="table_component" role="region" tabindex="0">
+        <table>
+            <thead>
+            <tr>
+                <th>Name<br></th>
+                <th>Status<br></th>
+                <th>Wake<br></th>
+            </tr>
+            <tr>
+                <th>Media Server</th>
+                <th>
+                    <div th:switch="${awake}">
+                        <p th:case="true">Media server is on</p>
+                        <p th:case="false">Media server is off</p>
+                    </div>
+                </th>
+                <th>
+                    <form th:action="@{/control-panel}" method="post">
+                        <button th:disabled="${awake}" type="submit">Wake</button>
+                    </form>
+                </th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div style="margin-top:8px"></div>
     </div>
-</body>
-<footer>
     <div class="center">
         <button onclick="window.location.href='/'">Back Home</button>
     </div>
+</body>
+<footer>
+
 </footer>
 </html>
