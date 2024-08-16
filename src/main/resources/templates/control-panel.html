@@ -19,11 +19,11 @@
                 <th>Media Server</th>
                 <th>
                     <div th:switch="${awake}">
-                        <p th:case="true">Media server is on</p>
+                        <p th:case="true">On</p>
                         <div th:case="false">
                             <div th:switch="${isWaking}">
-                                <p th:case="true">Media server is waking up</p>
-                                <p th:case="false">Media server is off</p>
+                                <p th:case="true">Waking up...</p>
+                                <p th:case="false">Off</p>
                             </div>
                         </div>
                     </div>
