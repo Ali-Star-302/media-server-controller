@@ -20,12 +20,17 @@
                 <th>
                     <div th:switch="${awake}">
                         <p th:case="true">Media server is on</p>
-                        <p th:case="false">Media server is off</p>
+                        <div th:case="false">
+                            <div th:switch="${isWaking}">
+                                <p th:case="true">Media server is waking up</p>
+                                <p th:case="false">Media server is off</p>
+                            </div>
+                        </div>
                     </div>
                 </th>
                 <th>
                     <form th:action="@{/control-panel}" method="post">
-                        <button th:disabled="${awake}" type="submit">Wake</button>
+                        <button th:disabled="${awake or  isWaking}" type="submit">Wake</button>
                     </form>
                 </th>
             </tr>

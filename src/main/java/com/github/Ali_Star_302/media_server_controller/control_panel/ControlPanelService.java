@@ -11,9 +11,12 @@ public class ControlPanelService {
 
     public final int PORT = 9;
 
+    private long wakeTime = System.currentTimeMillis() - 11000;
+
     //Based on code from Paul Mutton: http://www.jibble.org/wake-on-lan/
     public void wakePc(String ipAddr, String macAddr) {
         System.out.println("Waking PC");
+        wakeTime = System.currentTimeMillis();
         System.out.println("IP: " + ipAddr + ", MAC: " + macAddr);
 
         try {
@@ -54,5 +57,14 @@ public class ControlPanelService {
             throw new IllegalArgumentException("Invalid hex digit in MAC address");
         }
         return bytes;
+    }
+
+    public boolean isWaking() {
+        boolean isWaking = false;
+        if (System.currentTimeMillis() - wakeTime < 10000) {
+            isWaking = true;
+            System.out.println("PC is waking up");
+        }
+        return isWaking;
     }
 }

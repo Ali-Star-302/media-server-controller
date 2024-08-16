@@ -48,7 +48,7 @@ button {
 .table_component table {
     border: 1px solid #dededf;
     height: 100%;
-    width: 70%;
+    width: 60%;
     table-layout: fixed;
     border-collapse: collapse;
     border-spacing: 1px;
