@@ -30,19 +30,18 @@ public class ControlPanelController {
 
     @GetMapping("/control-panel")
     public ModelAndView controlPanel() {
-        ModelAndView modelAndView = new ModelAndView("control-panel");
-        System.out.println(mediaServerIp);
-        modelAndView.addObject("awake", this.pingService.sendPing(mediaServerIp, 1000));
-        modelAndView.addObject("isWaking", this.panelService.isWaking());
-
-        return modelAndView;
+        return setupModelAndView();
     }
 
     @PostMapping("/control-panel")
     public ModelAndView mediaServerBtnPress() {
         panelService.wakePc(mediaServerIp, mediaServerMac);
+
+        return setupModelAndView();
+    }
+
+    public ModelAndView setupModelAndView() {
         ModelAndView modelAndView = new ModelAndView("control-panel");
-        System.out.println(mediaServerIp);
         modelAndView.addObject("awake", this.pingService.sendPing(mediaServerIp, 1000));
         modelAndView.addObject("isWaking", this.panelService.isWaking());
 
