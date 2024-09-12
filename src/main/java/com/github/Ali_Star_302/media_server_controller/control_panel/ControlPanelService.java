@@ -60,11 +60,6 @@ public class ControlPanelService {
     }
 
     public boolean isWaking() {
-        boolean isWaking = false;
-        if (System.currentTimeMillis() - wakeTime < 10000) {
-            isWaking = true;
-            System.out.println("PC is waking up");
-        }
-        return isWaking;
+        return (System.currentTimeMillis() - wakeTime) < 20000;
     }
 }
